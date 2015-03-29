@@ -33,6 +33,22 @@ function OrderPage() {
 		updateRestaurantId();
 	});
 	
+	$('div.order-page-wrap').on('click', 'input[type="checkbox"]', function(e){
+		itemID = parseInt(e.currentTarget.value);
+		
+		item = $.grep(items, function(item){
+			return item.id === itemID;
+		})[0];
+		
+		if ( e.currentTarget.checked ) {
+			orderTotal = Math.round((orderTotal+item.price)*100)/100
+		} else {
+			orderTotal = Math.round((orderTotal-item.price)*100)/100
+		}
+		
+		orderTotalDisplay.html('£'+orderTotal);
+	});
+	
 	function updateRestaurantId(){
 		id = parseInt(restaurantSelector.val());
 		
@@ -68,7 +84,8 @@ function OrderPage() {
 								'html'	: '£' + item.price
 								}),
 								$('<input/>', {
-									'type'	: 'checkbox'
+									'type'	: 'checkbox',
+									'value'	: item.id
 								})
 							]
 						})
