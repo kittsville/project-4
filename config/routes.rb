@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
   
   root to: 'order#orderPage'
+  
+  match '/submit_order' => 'order#createOrder', :constraints => OnlyAjaxRequests.new, via: :post, defaults: {format: 'json'}
 end
