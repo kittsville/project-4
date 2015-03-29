@@ -1,3 +1,31 @@
 .order-page-wrap {
 	margin-top: 70px;
+	
+	div.box {
+		clear:both;
+		display:block;
+		overflow: auto;
+	}
+	
+	div.item-listing {
+		width: 100%;
+		clear: both;
+		margin: 1px 0px;
+		padding: 2px 0px;
+		span.name {
+			float: left;
+		}
+		
+		div.price-checkbox-wrap {
+			float: right;
+			
+			span.price {
+				float: left;
+			}
+			
+			input[type='checkbox'] {
+				float: right;
+			}
+		}
+	}
 }

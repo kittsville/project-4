@@ -54,16 +54,21 @@ function OrderPage() {
 				itemElement = $('<div/>', {
 					'class'	: 'item-listing',
 					'html'	: [
-						$('<p/>',{
+						$('<span/>',{
 							'class'	: 'name',
 							'html'	: item.name
 						}),
-						$('<p/>',{
-							'class'	: 'price',
-							'html'	: '£' + item.price
-						}),
-						$('<input/>', {
-							'type'	: 'checkbox'
+						$('<div/>',{
+							'class'	: 'price-checkbox-wrap',
+							'html'	: [
+								$('<span/>',{
+									'class'	: 'price',
+								'html'	: '£' + item.price
+								}),
+								$('<input/>', {
+									'type'	: 'checkbox'
+								})
+							]
 						})
 					]
 				});
