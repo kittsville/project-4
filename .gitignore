@@ -1,6 +1,7 @@
 *.rbc
 capybara-*.html
 .rspec
+.swp
 /log
 /tmp
 /public/system
