@@ -1,42 +1,46 @@
 <%= render "shared/header" %>
 <div class="order-page-wrap">
-	<div class="restaurant-box">
+	<div class="restaurant-box box">
 		<h3>1. Select your Restaurant</h3>
 		<div class="form-group">
-			<label for="city">Restaurant</label>
 			<select class="form-control" id="restaurant">
 				<option value=''/>
 			</select>
 		</div>
 	</div>
 
-	<div class="starter-box">
+	<div class="starter-box box">
 		<h3>2. Select your Starters</h3>
-		<div class="starters-wrapper"></div>
+		<div id="starters-wrapper"></div>
 	</div>
 
-	<div class="main-box">
+	<div class="main-box box">
 		<h3>3. Select your Mains</h3>
-		<div class="mains-wrapper"></div>
+		<div id="mains-wrapper"></div>
 	</div>
 
-	<div class="pudding-box">
+	<div class="pudding-box box">
 		<h3>4. Select your Puddings</h3>
-		<div class="puddings-wrapper"></div>
+		<div id="puddings-wrapper"></div>
 	</div>
 
-	<div class="side-box">
+	<div class="side-box box">
 		<h3>5. Select your Sides</h3>
-		<div class="sides-wrapper"></div>
+		<div id="sides-wrapper"></div>
 	</div>
 
-	<div class="email-box">
+	<div class="email-box box">
 		<h3>6. Enter your Email</h3>
 		<label for="order-email">Email Address:</label>
 		<input type="email" id="order-email" class="form-control" placeholder="Enter email"/>
 	</div>
 
-	<div class="confirm-box">
+	<div class="confirm-box box">
 		<h3>7. Confirm your Order</h3>
+		<div class="total-wrap">
+			<p>Total:</p>
+			<p id="order-total">£0</p>
+		</div>
+		 <button type="button" id="order-submit" class="btn btn-default">Complete Order</button>
 	</div>
 </div>
