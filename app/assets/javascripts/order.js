@@ -3,10 +3,12 @@ function OrderPage() {
 	items = [],
 	currentRestaurantId = 0,
 	restaurantSelector = $('select#restaurant'),
-	startersOps = $('div#starters-wrapper');
-	mainsOps = $('div#mains-wrapper');
-	puddingsOps = $('div#puddings-wrapper');
-	sidesOps = $('div#sides-wrapper');
+	startersOps = $('div#starters-wrapper'),
+	mainsOps = $('div#mains-wrapper'),
+	puddingsOps = $('div#puddings-wrapper'),
+	sidesOps = $('div#sides-wrapper'),
+	orderTotalDisplay = $('p#order-total'),
+	orderTotal = 0;
 	
 	// Fetches restaurant and item details
 	$.ajax({
