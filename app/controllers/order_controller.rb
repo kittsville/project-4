@@ -4,6 +4,14 @@ class OrderController < ApplicationController
     
   end
   
+  # Fetches details on restaurants and items to populate the order form
+  def get_details
+    render json: {
+      restaurants:	Restaurant.all,
+      items:		Item.all
+    }
+  end
+  
   # Creates an order from given chosen items
   def new_order
   
