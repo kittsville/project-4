@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   root to: 'order#order_creation'
   
   match '/order/submit' => 'order#new_order', :constraints => OnlyAjaxRequests.new, via: :post, defaults: {format: 'json'}
-  match '/order/get_details' => 'order#populate_form', :constraints => OnlyAjaxRequests.new, via: :post, defaults: {format: 'json'}
+  match '/order/get_details' => 'order#get_details', :constraints => OnlyAjaxRequests.new, via: :post, defaults: {format: 'json'}
 end
