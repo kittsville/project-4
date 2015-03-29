@@ -70,3 +70,5 @@ end
 drivers.each do |driver|
   Driver.create(driver)
 end
+
+puts "Added #{drivers.length} driver(s)"
