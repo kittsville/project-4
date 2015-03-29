@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :items
 
   resources :users
@@ -59,4 +60,17 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+=======
+  # Only allows AJAX requests for a specific route
+  class OnlyAjaxRequests
+    def matches?(request)
+      request.xhr?
+    end
+  end
+  
+  root to: 'order#order_creation'
+  
+  match '/order/submit' => 'order#new_order', :constraints => OnlyAjaxRequests.new, via: :post, defaults: {format: 'json'}
+  match '/order/get_details' => 'order#get_details', :constraints => OnlyAjaxRequests.new, via: :post, defaults: {format: 'json'}
+>>>>>>> 3135889dc33f605798f26cd5eb9c1ff1c232ad99
 end
