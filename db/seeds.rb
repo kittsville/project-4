@@ -11,6 +11,14 @@ restaurants = [
 	{name: 'Kim\'s Chinese Takeaway', address: '23 South Drive, Aberdeen, AB24 R32'}
 ]
 
+driver = [
+  {fname: 'Frank', lname: 'Underwood', username: 'underwood', password: 'underwood', available: 'true'}
+  ]
+
 restaurants.each do |restaurant|
 	Restaurant.create( name: restaurant.name, address: restaurant.address )
+end
+
+driver.each do |x|
+  Driver.create( fname: driver.fname, lname: driver.lname, username: driver.username. password: driver.password, available: driver.available )
 end
