@@ -1,6 +1,7 @@
 function OrderPage() {
 	var restaurants = [],
 	items = [],
+	selectedItems = [],
 	currentRestaurantId = 0,
 	restaurantSelector = $('select#restaurant'),
 	startersOps = $('div#starters-wrapper'),
@@ -41,12 +42,38 @@ function OrderPage() {
 		})[0];
 		
 		if ( e.currentTarget.checked ) {
-			orderTotal = Math.round((orderTotal+item.price)*100)/100
+			orderTotal = Math.round((orderTotal+item.price)*100)/100;
+			selectedItems.push(item.id);
 		} else {
-			orderTotal = Math.round((orderTotal-item.price)*100)/100
+			orderTotal = Math.round((orderTotal-item.price)*100)/100;
+			selectedItems.splice(selectedItems.indexOf(itemID), 1);
 		}
 		
 		orderTotalDisplay.html('£'+orderTotal);
+	});
+	
+	$('button#order-submit').click(function(){
+		emailInput = document.getElementById('order-email');
+		
+		if (emailInput.value !== '' && emailInput.checkValidity() ) {
+			$.ajax({
+				type	: 'POST',
+				url	: '/order/submit',	
+				dataType: 'json',
+				data	: items
+			}).success(function(data){
+				orderPage = $('div.order-page-wrap');
+				
+				orderPage.hide(500, function(){
+					orderPage.html('<h3>Your order has been submitted</h3>');
+					orderPage.show(500);
+				});
+			}).fail(function(){
+				alert('AJAX request failed. Sad times :(');
+			});
+		} else {
+			alert('Invalid Email');
+		}
 	});
 	
 	function updateRestaurantId(){
