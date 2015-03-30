@@ -50,7 +50,7 @@ restaurants = [
 ]
 
 driver = [
-  {fname: 'Frank', lname: 'Underwood', username: 'underwood', password: 'underwood', available: 'true'}
+  {fname: 'Frank', lname: 'Underwood', username: 'underwood', password: 'underwood', available: true}
   ]
 
 # Iterates over all restaurants, creating them and adding their items

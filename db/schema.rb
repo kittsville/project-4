@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329203148) do
+ActiveRecord::Schema.define(version: 20150330114459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "delivery", force: :cascade do |t|
     t.integer "order_id"
-    t.integer "restaurant_id"
     t.integer "driver_id"
   end
 
@@ -44,12 +43,13 @@ ActiveRecord::Schema.define(version: 20150329203148) do
   add_index "items", ["restaurant_id"], name: "index_items_on_restaurant_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "value"
+    t.float    "total"
     t.boolean  "complete"
     t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "address"
+    t.integer  "restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
