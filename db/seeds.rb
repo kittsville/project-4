@@ -49,8 +49,9 @@ restaurants = [
 	]]
 ]
 
+
 driver = [
-  {fname: 'Frank', lname: 'Underwood', username: 'underwood', password: 'underwood', available: true}
+  {fname: 'Frank', lname: 'Underwood', username: 'underwood', password: 'underwood', available: 1}
   ]
 
 # Iterates over all restaurants, creating them and adding their items
@@ -67,6 +68,8 @@ restaurants.each do |restaurantData|
 	puts "#{restaurantData[1].length} Items added to restaurant menu"
 end
 
-driver.each do |x|
-  Driver.create( fname: driver.fname, lname: driver.lname, username: driver.username. password: driver.password, available: driver.available )
+drivers.each do |driver|
+  Driver.create(driver)
 end
+
+puts "Added #{drivers.length} driver(s)"
