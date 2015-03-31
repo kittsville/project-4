@@ -55,6 +55,7 @@ driver = [
   ]
 
 # Iterates over all restaurants, creating them and adding their items
+Restaurants.delete_all
 restaurants.each do |restaurantData|
 	# Creates the restaurant
 	restaurant = Restaurant.create!( restaurantData[0] )
@@ -67,7 +68,7 @@ restaurants.each do |restaurantData|
 	end
 	puts "#{restaurantData[1].length} Items added to restaurant menu"
 end
-
+Drivers.delete_all
 drivers.each do |driver|
   Driver.create(driver)
 end
